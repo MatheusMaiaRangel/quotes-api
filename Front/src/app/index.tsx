@@ -1,44 +1,51 @@
-import { useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-const phrases = [
-  'Todo grande projeto começa com um pequeno passo.',
-  'Um passo de cada vez também é progresso.',
-  'Hoje é um bom dia para aprender algo novo.',
-];
+import { useRandomQuote } from '@/hooks/use-random-quote';
 
 export default function HomeScreen() {
-  const [touches, setTouches] = useState(0);
+  const { quote, isLoading, error, refresh } = useRandomQuote();
 
   return (
     <SafeAreaView style={styles.screen}>
       <ScrollView contentContainerStyle={styles.content}>
         <View style={styles.container}>
           <Text style={styles.brand}>QUOTES</Text>
-          <Text style={styles.title}>Olá! O app abriu.</Text>
+          <Text style={styles.title}>Frase do dia</Text>
           <Text style={styles.description}>
-            Toque no botão para trocar a frase e testar seu aplicativo.
+            Toque no botão para buscar uma nova frase.
           </Text>
           <View style={styles.card}>
-            <Text style={styles.label}>FRASE DO DIA</Text>
-            <Text style={styles.quote} accessibilityLiveRegion="polite">
-              {phrases[touches % phrases.length]}
-            </Text>
-            <Text style={styles.caption}>Uma pequena dose de inspiração.</Text>
+            <Text style={styles.label}>FRASE ALEATÓRIA</Text>
+            {isLoading && !quote ? (
+              <ActivityIndicator color="#4654C0" size="large" accessibilityLabel="Carregando frase" />
+            ) : quote ? (
+              <>
+                <Text style={styles.quote} accessibilityLiveRegion="polite">
+                  “{quote.quote}”
+                </Text>
+                <Text style={styles.caption}>— {quote.author}</Text>
+              </>
+            ) : null}
+            {error ? (
+              <Text style={styles.error} accessibilityLiveRegion="assertive">
+                {error}
+              </Text>
+            ) : null}
           </View>
           <Pressable
             accessibilityRole="button"
-            onPress={() => setTouches((current) => current + 1)}
-            style={({ pressed }) => [styles.button, pressed && styles.pressed]}>
-            <Text style={styles.buttonText}>Trocar frase</Text>
+            accessibilityState={{ busy: isLoading, disabled: isLoading }}
+            disabled={isLoading}
+            onPress={refresh}
+            style={({ pressed }) => [styles.button, (pressed || isLoading) && styles.pressed]}>
+            {isLoading ? (
+              <ActivityIndicator color="#FFFFFF" />
+            ) : (
+              <Text style={styles.buttonText}>{error ? 'Tentar de novo' : 'Nova frase'}</Text>
+            )}
           </Pressable>
-          <Text style={styles.counter} accessibilityLiveRegion="polite">
-            {touches === 0
-              ? 'Vamos testar o primeiro toque?'
-              : `Funcionou! ${touches} ${touches === 1 ? 'toque' : 'toques'} no botão.`}
-          </Text>
-          <Text style={styles.footer}>As frases de demonstração funcionam sem internet.</Text>
+          <Text style={styles.footer}>Frases fornecidas pela API DummyJSON.</Text>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -52,13 +59,13 @@ const styles = StyleSheet.create({
   brand: { color: '#4654C0', fontSize: 13, fontWeight: '800', letterSpacing: 4, marginBottom: 20 },
   title: { color: '#18213B', fontSize: 34, fontWeight: '800', marginBottom: 12 },
   description: { color: '#556078', fontSize: 17, lineHeight: 26, marginBottom: 28 },
-  card: { backgroundColor: '#FFFFFF', borderRadius: 24, padding: 28, marginBottom: 24 },
+  card: { backgroundColor: '#FFFFFF', borderRadius: 24, padding: 28, marginBottom: 24, minHeight: 160 },
   label: { color: '#68728A', fontSize: 11, fontWeight: '700', letterSpacing: 2, marginBottom: 20 },
   quote: { color: '#18213B', fontSize: 25, fontWeight: '600', lineHeight: 36, marginBottom: 24 },
   caption: { color: '#68728A', fontSize: 13, lineHeight: 20 },
+  error: { color: '#B3261E', fontSize: 14, lineHeight: 22, marginTop: 12 },
   button: { backgroundColor: '#4654C0', borderRadius: 16, padding: 18, alignItems: 'center' },
   pressed: { opacity: 0.8 },
   buttonText: { color: '#FFFFFF', fontSize: 17, fontWeight: '700' },
-  counter: { color: '#4654C0', fontSize: 14, lineHeight: 22, textAlign: 'center', marginTop: 18 },
   footer: { color: '#68728A', fontSize: 12, lineHeight: 20, textAlign: 'center', marginTop: 32 },
 });
