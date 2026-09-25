@@ -35,6 +35,7 @@
   "scripts": {
     "start": "expo start",
     "reset-project": "node ./scripts/reset-project.js",
+    "check-translations": "node ./scripts/check-translations.js",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
