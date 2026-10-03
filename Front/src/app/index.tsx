@@ -91,7 +91,6 @@ export default function HomeScreen() {
                 keyboardDismissMode="on-drag"
                 renderItem={({ item, index }) => (
                   <View style={[styles.row, index % 2 === 1 && styles.alternateRow]}>
-                    <Text style={[styles.idCell, styles.cell]}>{item.id}</Text>
                     <Text style={[styles.quoteCell, styles.cell]}>{item.quote}</Text>
                     <Text style={[styles.authorCell, styles.cell]}>{item.author}</Text>
                   </View>
@@ -128,9 +127,9 @@ const styles = StyleSheet.create({
   tableHeader: { backgroundColor: '#E9ECF8' },
   heading: { color: '#18213B', fontSize: 14, fontWeight: '700', padding: 10 },
   cell: { color: '#18213B', fontSize: 14, lineHeight: 21, padding: 10 },
-  idCell: { width: 48 },
+  // idCell: { width: 48 },
   quoteCell: { flex: 3, borderLeftWidth: 1, borderLeftColor: '#E4E8F0' },
-  authorCell: { flex: 1.4, borderLeftWidth: 1, borderLeftColor: '#E4E8F0' },
+  authorCell: { flex: 1.5, borderLeftWidth: 1, borderLeftColor: '#E4E8F0' },
   alternateRow: { backgroundColor: '#F8F9FC' },
   status: { flex: 1, justifyContent: 'center', alignItems: 'center', gap: 16 },
   error: { color: '#B3261E', fontSize: 14, lineHeight: 22, textAlign: 'center' },
