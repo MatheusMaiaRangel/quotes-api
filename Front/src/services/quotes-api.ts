@@ -17,6 +17,11 @@ export async function getQuotes(limit = DEFAULT_PAGE_SIZE, skip = 0): Promise<Qu
   return { ...page, quotes: page.quotes.map(translateQuote) };
 }
 
+export async function getAllQuotes(): Promise<Quote[]> {
+  const page = await getJson('/quotes?limit=0', isQuotesPage);
+  return page.quotes.map(translateQuote);
+}
+
 export async function getQuoteById(id: number): Promise<Quote> {
   const safeId = toSafeInteger(id, 1, Number.MAX_SAFE_INTEGER);
   return translateQuote(await getJson(`/quotes/${safeId}`, isQuote));
