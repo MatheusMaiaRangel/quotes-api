@@ -1,9 +1,18 @@
 :root {
   --font-display:
-    Spline Sans, Inter, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji,
+    -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji,
     Segoe UI Symbol, Noto Color Emoji;
   --font-mono:
     ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
   --font-rounded: 'SF Pro Rounded', 'Hiragino Maru Gothic ProN', Meiryo, 'MS PGothic', sans-serif;
   --font-serif: Georgia, 'Times New Roman', serif;
+}
+
+input:focus {
+  outline: none;
+}
+
+[data-testid='quote-search']:focus-within {
+  border-color: #78a98b !important;
+  box-shadow: 0 0 0 3px rgba(120, 169, 139, 0.14);
 }
