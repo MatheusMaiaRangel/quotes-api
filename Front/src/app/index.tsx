@@ -8,12 +8,13 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { FavoriteButton } from '@/components/favorite-button';
+import { OfflineBanner } from '@/components/offline-banner';
 import { QuoteCard } from '@/components/quote-card';
 import { QuotesHeader } from '@/components/quotes-header';
 import { useQuotesColors } from '@/constants/quotes-theme';
 import type { Quote } from '@/models/quote';
 import { toErrorMessage } from '@/services/api-client';
-import { getAllQuotes } from '@/services/quotes-api';
+import { loadAllQuotes } from '@/services/quotes-repository';
 import { filterQuotes, isNumberSearch } from '@/utils/filter-quotes';
 
 export default function HomeScreen() {
@@ -26,6 +27,7 @@ export default function HomeScreen() {
   const [featuredIndex, setFeaturedIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [offlineSavedAt, setOfflineSavedAt] = useState<string | null>(null);
   const [attempt, setAttempt] = useState(0);
 
   useEffect(() => {
@@ -34,9 +36,10 @@ export default function HomeScreen() {
       setIsLoading(true);
       setError(null);
       try {
-        const allQuotes = await getAllQuotes();
+        const loaded = await loadAllQuotes();
         if (active) {
-          setQuotes(allQuotes);
+          setQuotes(loaded.quotes);
+          setOfflineSavedAt(loaded.isOffline ? loaded.savedAt : null);
           setFeaturedIndex(0);
         }
       } catch (loadError) {
@@ -145,6 +148,7 @@ export default function HomeScreen() {
               )}
             </View>
 
+            {!isLoading && !error && offlineSavedAt && <OfflineBanner savedAt={offlineSavedAt} />}
             {isLoading && (
               <View style={styles.status}>
                 <ActivityIndicator color={colors.accent} accessibilityLabel="Carregando frases" />
