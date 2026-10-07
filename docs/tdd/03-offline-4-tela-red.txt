@@ -1,0 +1,1680 @@
+FAIL tests/screens/home.test.tsx (14.44 s)
+  Tela inicial
+    ✕ mostra carregando enquanto a API não responde (2699 ms)
+    ✕ mostra a frase em destaque e a coleção (1011 ms)
+    ✕ não mostra aviso de offline quando a API respondeu (1015 ms)
+    ✕ mostra aviso quando está usando as frases salvas (1015 ms)
+    ✕ mostra erro amigável e recupera ao tentar novamente (1016 ms)
+    ✕ filtra a coleção pelo autor, sem acento (1014 ms)
+    ✕ avisa quando a busca por número não encontra nada e permite limpar (1012 ms)
+    ✕ avisa quando a busca por texto não encontra nada (1011 ms)
+    ✕ mostra mais frases em lotes de 24 (1013 ms)
+    ✕ troca a frase em destaque por outra (1009 ms)
+    ✕ mostra mensagem quando a API devolve coleção vazia (1013 ms)
+
+  ● Tela inicial › mostra carregando enquanto a API não responde
+
+    Unable to find an element with accessibility label: Carregando frases
+
+    <RNCSafeAreaProvider>
+      <RNCSafeAreaView>
+        <RCTScrollView>
+          <View>
+            <View>
+              <View>
+                <View>
+                  <View>
+                    <Text>
+                      “
+                    </Text>
+                  </View>
+                  <Text>
+                    quotes
+                    <Text>
+                      .
+                    </Text>
+                  </Text>
+                </View>
+                <View>
+                  <View
+                    accessibilityRole="link"
+                    accessibilityState={
+                      {
+                        "selected": true,
+                      }
+                    }
+                    accessible={true}
+                  >
+                    <Text>
+                      Explorar
+                    </Text>
+                  </View>
+                  <View
+                    accessibilityRole="link"
+                    accessibilityState={
+                      {
+                        "selected": false,
+                      }
+                    }
+                    accessible={true}
+                  >
+                    <Text>
+                      ♥ Curtidas
+                    </Text>
+                  </View>
+                </View>
+              </View>
+              <View>
+                <View>
+                  <View />
+                  <Text>
+                    INSPIRAÇÃO PARA TODOS OS DIAS
+                  </Text>
+                </View>
+                <Text>
+                  Palavras que
+                  
+    
+                  ficam com você.
+                </Text>
+                <Text>
+                  Pequenas ideias, grandes perspectivas. Encontre a frase certa para o seu momento.
+                </Text>
+              </View>
+              <View>
+                <View>
+                  <View>
+                    <Text>
+                      EM DESTAQUE
+                    </Text>
+                  </View>
+                  <Text>
+                    “
+                  </Text>
+                </View>
+                <Text>
+                  Inspiração para o seu dia.
+                </Text>
+              </View>
+              <View>
+                <View>
+                  <Text>
+                    EXPLORE A COLEÇÃO
+                  </Text>
+                  <Text>
+                    Todas as frases
+                  </Text>
+                </View>
+              </View>
+              <View
+                testID="quote-search"
+              >
+                <Text>
+                  ⌕
+                </Text>
+                <TextInput
+                  accessibilityLabel="Pesquisar por número, autor ou texto da frase"
+                  placeholder="Número, autor ou palavra-chave"
+                  value=""
+                />
+              </View>
+              <View>
+                <Text>
+                  Não foi possível carregar as frases
+                </Text>
+                <Text>
+                  O servidor está com problemas agora. Tente mais tarde.
+                </Text>
+                <View
+                  accessibilityRole="button"
+                  accessible={true}
+                >
+                  <Text>
+                    Tentar novamente
+                  </Text>
+                </View>
+              </View>
+            </View>
+            <View>
+              <Text>
+                quotes
+                <Text>
+                  .
+                </Text>
+              </Text>
+              <Text>
+                Frases fornecidas pela API DummyJSON
+              </Text>
+            </View>
+          </View>
+        </RCTScrollView>
+      </RNCSafeAreaView>
+    </RNCSafeAreaProvider>
+
+      36 |
+      37 |     await renderWithProviders(<HomeScreen />);
+    > 38 |     expect(screen.getByLabelText('Carregando frases')).toBeOnTheScreen();
+         |                   ^
+      39 |
+      40 |     await act(async () => response.resolve(online));
+      41 |     expect(screen.queryByLabelText('Carregando frases')).not.toBeOnTheScreen();
+
+      at Object.getByLabelText (tests/screens/home.test.tsx:38:19)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● Tela inicial › mostra a frase em destaque e a coleção
+
+    Unable to find an element with text: 3 frases
+
+    <RNCSafeAreaProvider>
+      <RNCSafeAreaView>
+        <RCTScrollView>
+          <View>
+            <View>
+              <View>
+                <View>
+                  <View>
+                    <Text>
+                      “
+                    </Text>
+                  </View>
+                  <Text>
+                    quotes
+                    <Text>
+                      .
+                    </Text>
+                  </Text>
+                </View>
+                <View>
+                  <View
+                    accessibilityRole="link"
+                    accessibilityState={
+                      {
+                        "selected": true,
+                      }
+                    }
+                    accessible={true}
+                  >
+                    <Text>
+                      Explorar
+                    </Text>
+                  </View>
+                  <View
+                    accessibilityRole="link"
+                    accessibilityState={
+                      {
+                        "selected": false,
+                      }
+                    }
+                    accessible={true}
+                  >
+                    <Text>
+                      ♥ Curtidas
+                    </Text>
+                  </View>
+                </View>
+              </View>
+              <View>
+                <View>
+                  <View />
+                  <Text>
+                    INSPIRAÇÃO PARA TODOS OS DIAS
+                  </Text>
+                </View>
+                <Text>
+                  Palavras que
+                  
+    
+                  ficam com você.
+                </Text>
+                <Text>
+                  Pequenas ideias, grandes perspectivas. Encontre a frase certa para o seu momento.
+                </Text>
+              </View>
+              <View>
+                <View>
+                  <View>
+                    <Text>
+                      EM DESTAQUE
+                    </Text>
+                  </View>
+                  <Text>
+                    “
+                  </Text>
+                </View>
+                <Text>
+                  Inspiração para o seu dia.
+                </Text>
+              </View>
+              <View>
+                <View>
+                  <Text>
+                    EXPLORE A COLEÇÃO
+                  </Text>
+                  <Text>
+                    Todas as frases
+                  </Text>
+                </View>
+              </View>
+              <View
+                testID="quote-search"
+              >
+                <Text>
+                  ⌕
+                </Text>
+                <TextInput
+                  accessibilityLabel="Pesquisar por número, autor ou texto da frase"
+                  placeholder="Número, autor ou palavra-chave"
+                  value=""
+                />
+              </View>
+              <View>
+                <Text>
+                  Não foi possível carregar as frases
+                </Text>
+                <Text>
+                  O servidor está com problemas agora. Tente mais tarde.
+                </Text>
+                <View
+                  accessibilityRole="button"
+                  accessible={true}
+                >
+                  <Text>
+                    Tentar novamente
+                  </Text>
+                </View>
+              </View>
+            </View>
+            <View>
+              <Text>
+                quotes
+                <Text>
+                  .
+                </Text>
+              </Text>
+              <Text>
+                Frases fornecidas pela API DummyJSON
+              </Text>
+            </View>
+          </View>
+        </RCTScrollView>
+      </RNCSafeAreaView>
+    </RNCSafeAreaProvider>
+
+      27 |   loadAllQuotesMock.mockResolvedValue(result);
+      28 |   await renderWithProviders(<HomeScreen />);
+    > 29 |   await screen.findByText(`${result.quotes.length} frases`);
+         |                ^
+      30 | }
+      31 |
+      32 | describe('Tela inicial', () => {
+
+      at findByText (tests/screens/home.test.tsx:29:16)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● Tela inicial › não mostra aviso de offline quando a API respondeu
+
+    Unable to find an element with text: 3 frases
+
+    <RNCSafeAreaProvider>
+      <RNCSafeAreaView>
+        <RCTScrollView>
+          <View>
+            <View>
+              <View>
+                <View>
+                  <View>
+                    <Text>
+                      “
+                    </Text>
+                  </View>
+                  <Text>
+                    quotes
+                    <Text>
+                      .
+                    </Text>
+                  </Text>
+                </View>
+                <View>
+                  <View
+                    accessibilityRole="link"
+                    accessibilityState={
+                      {
+                        "selected": true,
+                      }
+                    }
+                    accessible={true}
+                  >
+                    <Text>
+                      Explorar
+                    </Text>
+                  </View>
+                  <View
+                    accessibilityRole="link"
+                    accessibilityState={
+                      {
+                        "selected": false,
+                      }
+                    }
+                    accessible={true}
+                  >
+                    <Text>
+                      ♥ Curtidas
+                    </Text>
+                  </View>
+                </View>
+              </View>
+              <View>
+                <View>
+                  <View />
+                  <Text>
+                    INSPIRAÇÃO PARA TODOS OS DIAS
+                  </Text>
+                </View>
+                <Text>
+                  Palavras que
+                  
+    
+                  ficam com você.
+                </Text>
+                <Text>
+                  Pequenas ideias, grandes perspectivas. Encontre a frase certa para o seu momento.
+                </Text>
+              </View>
+              <View>
+                <View>
+                  <View>
+                    <Text>
+                      EM DESTAQUE
+                    </Text>
+                  </View>
+                  <Text>
+                    “
+                  </Text>
+                </View>
+                <Text>
+                  Inspiração para o seu dia.
+                </Text>
+              </View>
+              <View>
+                <View>
+                  <Text>
+                    EXPLORE A COLEÇÃO
+                  </Text>
+                  <Text>
+                    Todas as frases
+                  </Text>
+                </View>
+              </View>
+              <View
+                testID="quote-search"
+              >
+                <Text>
+                  ⌕
+                </Text>
+                <TextInput
+                  accessibilityLabel="Pesquisar por número, autor ou texto da frase"
+                  placeholder="Número, autor ou palavra-chave"
+                  value=""
+                />
+              </View>
+              <View>
+                <Text>
+                  Não foi possível carregar as frases
+                </Text>
+                <Text>
+                  O servidor está com problemas agora. Tente mais tarde.
+                </Text>
+                <View
+                  accessibilityRole="button"
+                  accessible={true}
+                >
+                  <Text>
+                    Tentar novamente
+                  </Text>
+                </View>
+              </View>
+            </View>
+            <View>
+              <Text>
+                quotes
+                <Text>
+                  .
+                </Text>
+              </Text>
+              <Text>
+                Frases fornecidas pela API DummyJSON
+              </Text>
+            </View>
+          </View>
+        </RCTScrollView>
+      </RNCSafeAreaView>
+    </RNCSafeAreaProvider>
+
+      27 |   loadAllQuotesMock.mockResolvedValue(result);
+      28 |   await renderWithProviders(<HomeScreen />);
+    > 29 |   await screen.findByText(`${result.quotes.length} frases`);
+         |                ^
+      30 | }
+      31 |
+      32 | describe('Tela inicial', () => {
+
+      at findByText (tests/screens/home.test.tsx:29:16)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● Tela inicial › mostra aviso quando está usando as frases salvas
+
+    Unable to find an element with text: 3 frases
+
+    <RNCSafeAreaProvider>
+      <RNCSafeAreaView>
+        <RCTScrollView>
+          <View>
+            <View>
+              <View>
+                <View>
+                  <View>
+                    <Text>
+                      “
+                    </Text>
+                  </View>
+                  <Text>
+                    quotes
+                    <Text>
+                      .
+                    </Text>
+                  </Text>
+                </View>
+                <View>
+                  <View
+                    accessibilityRole="link"
+                    accessibilityState={
+                      {
+                        "selected": true,
+                      }
+                    }
+                    accessible={true}
+                  >
+                    <Text>
+                      Explorar
+                    </Text>
+                  </View>
+                  <View
+                    accessibilityRole="link"
+                    accessibilityState={
+                      {
+                        "selected": false,
+                      }
+                    }
+                    accessible={true}
+                  >
+                    <Text>
+                      ♥ Curtidas
+                    </Text>
+                  </View>
+                </View>
+              </View>
+              <View>
+                <View>
+                  <View />
+                  <Text>
+                    INSPIRAÇÃO PARA TODOS OS DIAS
+                  </Text>
+                </View>
+                <Text>
+                  Palavras que
+                  
+    
+                  ficam com você.
+                </Text>
+                <Text>
+                  Pequenas ideias, grandes perspectivas. Encontre a frase certa para o seu momento.
+                </Text>
+              </View>
+              <View>
+                <View>
+                  <View>
+                    <Text>
+                      EM DESTAQUE
+                    </Text>
+                  </View>
+                  <Text>
+                    “
+                  </Text>
+                </View>
+                <Text>
+                  Inspiração para o seu dia.
+                </Text>
+              </View>
+              <View>
+                <View>
+                  <Text>
+                    EXPLORE A COLEÇÃO
+                  </Text>
+                  <Text>
+                    Todas as frases
+                  </Text>
+                </View>
+              </View>
+              <View
+                testID="quote-search"
+              >
+                <Text>
+                  ⌕
+                </Text>
+                <TextInput
+                  accessibilityLabel="Pesquisar por número, autor ou texto da frase"
+                  placeholder="Número, autor ou palavra-chave"
+                  value=""
+                />
+              </View>
+              <View>
+                <Text>
+                  Não foi possível carregar as frases
+                </Text>
+                <Text>
+                  O servidor está com problemas agora. Tente mais tarde.
+                </Text>
+                <View
+                  accessibilityRole="button"
+                  accessible={true}
+                >
+                  <Text>
+                    Tentar novamente
+                  </Text>
+                </View>
+              </View>
+            </View>
+            <View>
+              <Text>
+                quotes
+                <Text>
+                  .
+                </Text>
+              </Text>
+              <Text>
+                Frases fornecidas pela API DummyJSON
+              </Text>
+            </View>
+          </View>
+        </RCTScrollView>
+      </RNCSafeAreaView>
+    </RNCSafeAreaProvider>
+
+      27 |   loadAllQuotesMock.mockResolvedValue(result);
+      28 |   await renderWithProviders(<HomeScreen />);
+    > 29 |   await screen.findByText(`${result.quotes.length} frases`);
+         |                ^
+      30 | }
+      31 |
+      32 | describe('Tela inicial', () => {
+
+      at findByText (tests/screens/home.test.tsx:29:16)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● Tela inicial › mostra erro amigável e recupera ao tentar novamente
+
+    Unable to find an element with text: Sem conexão com a internet. Verifique sua rede e tente de novo.
+
+    <RNCSafeAreaProvider>
+      <RNCSafeAreaView>
+        <RCTScrollView>
+          <View>
+            <View>
+              <View>
+                <View>
+                  <View>
+                    <Text>
+                      “
+                    </Text>
+                  </View>
+                  <Text>
+                    quotes
+                    <Text>
+                      .
+                    </Text>
+                  </Text>
+                </View>
+                <View>
+                  <View
+                    accessibilityRole="link"
+                    accessibilityState={
+                      {
+                        "selected": true,
+                      }
+                    }
+                    accessible={true}
+                  >
+                    <Text>
+                      Explorar
+                    </Text>
+                  </View>
+                  <View
+                    accessibilityRole="link"
+                    accessibilityState={
+                      {
+                        "selected": false,
+                      }
+                    }
+                    accessible={true}
+                  >
+                    <Text>
+                      ♥ Curtidas
+                    </Text>
+                  </View>
+                </View>
+              </View>
+              <View>
+                <View>
+                  <View />
+                  <Text>
+                    INSPIRAÇÃO PARA TODOS OS DIAS
+                  </Text>
+                </View>
+                <Text>
+                  Palavras que
+                  
+    
+                  ficam com você.
+                </Text>
+                <Text>
+                  Pequenas ideias, grandes perspectivas. Encontre a frase certa para o seu momento.
+                </Text>
+              </View>
+              <View>
+                <View>
+                  <View>
+                    <Text>
+                      EM DESTAQUE
+                    </Text>
+                  </View>
+                  <Text>
+                    “
+                  </Text>
+                </View>
+                <Text>
+                  Inspiração para o seu dia.
+                </Text>
+              </View>
+              <View>
+                <View>
+                  <Text>
+                    EXPLORE A COLEÇÃO
+                  </Text>
+                  <Text>
+                    Todas as frases
+                  </Text>
+                </View>
+              </View>
+              <View
+                testID="quote-search"
+              >
+                <Text>
+                  ⌕
+                </Text>
+                <TextInput
+                  accessibilityLabel="Pesquisar por número, autor ou texto da frase"
+                  placeholder="Número, autor ou palavra-chave"
+                  value=""
+                />
+              </View>
+              <View>
+                <Text>
+                  Não foi possível carregar as frases
+                </Text>
+                <Text>
+                  O servidor está com problemas agora. Tente mais tarde.
+                </Text>
+                <View
+                  accessibilityRole="button"
+                  accessible={true}
+                >
+                  <Text>
+                    Tentar novamente
+                  </Text>
+                </View>
+              </View>
+            </View>
+            <View>
+              <Text>
+                quotes
+                <Text>
+                  .
+                </Text>
+              </Text>
+              <Text>
+                Frases fornecidas pela API DummyJSON
+              </Text>
+            </View>
+          </View>
+        </RCTScrollView>
+      </RNCSafeAreaView>
+    </RNCSafeAreaProvider>
+
+      68 |     await renderWithProviders(<HomeScreen />);
+      69 |
+    > 70 |     expect(await screen.findByText('Sem conexão com a internet. Verifique sua rede e tente de novo.')).toBeOnTheScreen();
+         |                         ^
+      71 |     await user.press(screen.getByRole('button', { name: 'Tentar novamente' }));
+      72 |
+      73 |     expect(await screen.findByText('3 frases')).toBeOnTheScreen();
+
+      at Object.findByText (tests/screens/home.test.tsx:70:25)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● Tela inicial › filtra a coleção pelo autor, sem acento
+
+    Unable to find an element with text: 3 frases
+
+    <RNCSafeAreaProvider>
+      <RNCSafeAreaView>
+        <RCTScrollView>
+          <View>
+            <View>
+              <View>
+                <View>
+                  <View>
+                    <Text>
+                      “
+                    </Text>
+                  </View>
+                  <Text>
+                    quotes
+                    <Text>
+                      .
+                    </Text>
+                  </Text>
+                </View>
+                <View>
+                  <View
+                    accessibilityRole="link"
+                    accessibilityState={
+                      {
+                        "selected": true,
+                      }
+                    }
+                    accessible={true}
+                  >
+                    <Text>
+                      Explorar
+                    </Text>
+                  </View>
+                  <View
+                    accessibilityRole="link"
+                    accessibilityState={
+                      {
+                        "selected": false,
+                      }
+                    }
+                    accessible={true}
+                  >
+                    <Text>
+                      ♥ Curtidas
+                    </Text>
+                  </View>
+                </View>
+              </View>
+              <View>
+                <View>
+                  <View />
+                  <Text>
+                    INSPIRAÇÃO PARA TODOS OS DIAS
+                  </Text>
+                </View>
+                <Text>
+                  Palavras que
+                  
+    
+                  ficam com você.
+                </Text>
+                <Text>
+                  Pequenas ideias, grandes perspectivas. Encontre a frase certa para o seu momento.
+                </Text>
+              </View>
+              <View>
+                <View>
+                  <View>
+                    <Text>
+                      EM DESTAQUE
+                    </Text>
+                  </View>
+                  <Text>
+                    “
+                  </Text>
+                </View>
+                <Text>
+                  Inspiração para o seu dia.
+                </Text>
+              </View>
+              <View>
+                <View>
+                  <Text>
+                    EXPLORE A COLEÇÃO
+                  </Text>
+                  <Text>
+                    Todas as frases
+                  </Text>
+                </View>
+              </View>
+              <View
+                testID="quote-search"
+              >
+                <Text>
+                  ⌕
+                </Text>
+                <TextInput
+                  accessibilityLabel="Pesquisar por número, autor ou texto da frase"
+                  placeholder="Número, autor ou palavra-chave"
+                  value=""
+                />
+              </View>
+              <View>
+                <Text>
+                  Não foi possível carregar as frases
+                </Text>
+                <Text>
+                  O servidor está com problemas agora. Tente mais tarde.
+                </Text>
+                <View
+                  accessibilityRole="button"
+                  accessible={true}
+                >
+                  <Text>
+                    Tentar novamente
+                  </Text>
+                </View>
+              </View>
+            </View>
+            <View>
+              <Text>
+                quotes
+                <Text>
+                  .
+                </Text>
+              </Text>
+              <Text>
+                Frases fornecidas pela API DummyJSON
+              </Text>
+            </View>
+          </View>
+        </RCTScrollView>
+      </RNCSafeAreaView>
+    </RNCSafeAreaProvider>
+
+      27 |   loadAllQuotesMock.mockResolvedValue(result);
+      28 |   await renderWithProviders(<HomeScreen />);
+    > 29 |   await screen.findByText(`${result.quotes.length} frases`);
+         |                ^
+      30 | }
+      31 |
+      32 | describe('Tela inicial', () => {
+
+      at findByText (tests/screens/home.test.tsx:29:16)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● Tela inicial › avisa quando a busca por número não encontra nada e permite limpar
+
+    Unable to find an element with text: 3 frases
+
+    <RNCSafeAreaProvider>
+      <RNCSafeAreaView>
+        <RCTScrollView>
+          <View>
+            <View>
+              <View>
+                <View>
+                  <View>
+                    <Text>
+                      “
+                    </Text>
+                  </View>
+                  <Text>
+                    quotes
+                    <Text>
+                      .
+                    </Text>
+                  </Text>
+                </View>
+                <View>
+                  <View
+                    accessibilityRole="link"
+                    accessibilityState={
+                      {
+                        "selected": true,
+                      }
+                    }
+                    accessible={true}
+                  >
+                    <Text>
+                      Explorar
+                    </Text>
+                  </View>
+                  <View
+                    accessibilityRole="link"
+                    accessibilityState={
+                      {
+                        "selected": false,
+                      }
+                    }
+                    accessible={true}
+                  >
+                    <Text>
+                      ♥ Curtidas
+                    </Text>
+                  </View>
+                </View>
+              </View>
+              <View>
+                <View>
+                  <View />
+                  <Text>
+                    INSPIRAÇÃO PARA TODOS OS DIAS
+                  </Text>
+                </View>
+                <Text>
+                  Palavras que
+                  
+    
+                  ficam com você.
+                </Text>
+                <Text>
+                  Pequenas ideias, grandes perspectivas. Encontre a frase certa para o seu momento.
+                </Text>
+              </View>
+              <View>
+                <View>
+                  <View>
+                    <Text>
+                      EM DESTAQUE
+                    </Text>
+                  </View>
+                  <Text>
+                    “
+                  </Text>
+                </View>
+                <Text>
+                  Inspiração para o seu dia.
+                </Text>
+              </View>
+              <View>
+                <View>
+                  <Text>
+                    EXPLORE A COLEÇÃO
+                  </Text>
+                  <Text>
+                    Todas as frases
+                  </Text>
+                </View>
+              </View>
+              <View
+                testID="quote-search"
+              >
+                <Text>
+                  ⌕
+                </Text>
+                <TextInput
+                  accessibilityLabel="Pesquisar por número, autor ou texto da frase"
+                  placeholder="Número, autor ou palavra-chave"
+                  value=""
+                />
+              </View>
+              <View>
+                <Text>
+                  Não foi possível carregar as frases
+                </Text>
+                <Text>
+                  O servidor está com problemas agora. Tente mais tarde.
+                </Text>
+                <View
+                  accessibilityRole="button"
+                  accessible={true}
+                >
+                  <Text>
+                    Tentar novamente
+                  </Text>
+                </View>
+              </View>
+            </View>
+            <View>
+              <Text>
+                quotes
+                <Text>
+                  .
+                </Text>
+              </Text>
+              <Text>
+                Frases fornecidas pela API DummyJSON
+              </Text>
+            </View>
+          </View>
+        </RCTScrollView>
+      </RNCSafeAreaView>
+    </RNCSafeAreaProvider>
+
+      27 |   loadAllQuotesMock.mockResolvedValue(result);
+      28 |   await renderWithProviders(<HomeScreen />);
+    > 29 |   await screen.findByText(`${result.quotes.length} frases`);
+         |                ^
+      30 | }
+      31 |
+      32 | describe('Tela inicial', () => {
+
+      at findByText (tests/screens/home.test.tsx:29:16)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● Tela inicial › avisa quando a busca por texto não encontra nada
+
+    Unable to find an element with text: 3 frases
+
+    <RNCSafeAreaProvider>
+      <RNCSafeAreaView>
+        <RCTScrollView>
+          <View>
+            <View>
+              <View>
+                <View>
+                  <View>
+                    <Text>
+                      “
+                    </Text>
+                  </View>
+                  <Text>
+                    quotes
+                    <Text>
+                      .
+                    </Text>
+                  </Text>
+                </View>
+                <View>
+                  <View
+                    accessibilityRole="link"
+                    accessibilityState={
+                      {
+                        "selected": true,
+                      }
+                    }
+                    accessible={true}
+                  >
+                    <Text>
+                      Explorar
+                    </Text>
+                  </View>
+                  <View
+                    accessibilityRole="link"
+                    accessibilityState={
+                      {
+                        "selected": false,
+                      }
+                    }
+                    accessible={true}
+                  >
+                    <Text>
+                      ♥ Curtidas
+                    </Text>
+                  </View>
+                </View>
+              </View>
+              <View>
+                <View>
+                  <View />
+                  <Text>
+                    INSPIRAÇÃO PARA TODOS OS DIAS
+                  </Text>
+                </View>
+                <Text>
+                  Palavras que
+                  
+    
+                  ficam com você.
+                </Text>
+                <Text>
+                  Pequenas ideias, grandes perspectivas. Encontre a frase certa para o seu momento.
+                </Text>
+              </View>
+              <View>
+                <View>
+                  <View>
+                    <Text>
+                      EM DESTAQUE
+                    </Text>
+                  </View>
+                  <Text>
+                    “
+                  </Text>
+                </View>
+                <Text>
+                  Inspiração para o seu dia.
+                </Text>
+              </View>
+              <View>
+                <View>
+                  <Text>
+                    EXPLORE A COLEÇÃO
+                  </Text>
+                  <Text>
+                    Todas as frases
+                  </Text>
+                </View>
+              </View>
+              <View
+                testID="quote-search"
+              >
+                <Text>
+                  ⌕
+                </Text>
+                <TextInput
+                  accessibilityLabel="Pesquisar por número, autor ou texto da frase"
+                  placeholder="Número, autor ou palavra-chave"
+                  value=""
+                />
+              </View>
+              <View>
+                <Text>
+                  Não foi possível carregar as frases
+                </Text>
+                <Text>
+                  O servidor está com problemas agora. Tente mais tarde.
+                </Text>
+                <View
+                  accessibilityRole="button"
+                  accessible={true}
+                >
+                  <Text>
+                    Tentar novamente
+                  </Text>
+                </View>
+              </View>
+            </View>
+            <View>
+              <Text>
+                quotes
+                <Text>
+                  .
+                </Text>
+              </Text>
+              <Text>
+                Frases fornecidas pela API DummyJSON
+              </Text>
+            </View>
+          </View>
+        </RCTScrollView>
+      </RNCSafeAreaView>
+    </RNCSafeAreaProvider>
+
+      27 |   loadAllQuotesMock.mockResolvedValue(result);
+      28 |   await renderWithProviders(<HomeScreen />);
+    > 29 |   await screen.findByText(`${result.quotes.length} frases`);
+         |                ^
+      30 | }
+      31 |
+      32 | describe('Tela inicial', () => {
+
+      at findByText (tests/screens/home.test.tsx:29:16)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● Tela inicial › mostra mais frases em lotes de 24
+
+    Unable to find an element with text: 30 frases
+
+    <RNCSafeAreaProvider>
+      <RNCSafeAreaView>
+        <RCTScrollView>
+          <View>
+            <View>
+              <View>
+                <View>
+                  <View>
+                    <Text>
+                      “
+                    </Text>
+                  </View>
+                  <Text>
+                    quotes
+                    <Text>
+                      .
+                    </Text>
+                  </Text>
+                </View>
+                <View>
+                  <View
+                    accessibilityRole="link"
+                    accessibilityState={
+                      {
+                        "selected": true,
+                      }
+                    }
+                    accessible={true}
+                  >
+                    <Text>
+                      Explorar
+                    </Text>
+                  </View>
+                  <View
+                    accessibilityRole="link"
+                    accessibilityState={
+                      {
+                        "selected": false,
+                      }
+                    }
+                    accessible={true}
+                  >
+                    <Text>
+                      ♥ Curtidas
+                    </Text>
+                  </View>
+                </View>
+              </View>
+              <View>
+                <View>
+                  <View />
+                  <Text>
+                    INSPIRAÇÃO PARA TODOS OS DIAS
+                  </Text>
+                </View>
+                <Text>
+                  Palavras que
+                  
+    
+                  ficam com você.
+                </Text>
+                <Text>
+                  Pequenas ideias, grandes perspectivas. Encontre a frase certa para o seu momento.
+                </Text>
+              </View>
+              <View>
+                <View>
+                  <View>
+                    <Text>
+                      EM DESTAQUE
+                    </Text>
+                  </View>
+                  <Text>
+                    “
+                  </Text>
+                </View>
+                <Text>
+                  Inspiração para o seu dia.
+                </Text>
+              </View>
+              <View>
+                <View>
+                  <Text>
+                    EXPLORE A COLEÇÃO
+                  </Text>
+                  <Text>
+                    Todas as frases
+                  </Text>
+                </View>
+              </View>
+              <View
+                testID="quote-search"
+              >
+                <Text>
+                  ⌕
+                </Text>
+                <TextInput
+                  accessibilityLabel="Pesquisar por número, autor ou texto da frase"
+                  placeholder="Número, autor ou palavra-chave"
+                  value=""
+                />
+              </View>
+              <View>
+                <Text>
+                  Não foi possível carregar as frases
+                </Text>
+                <Text>
+                  O servidor está com problemas agora. Tente mais tarde.
+                </Text>
+                <View
+                  accessibilityRole="button"
+                  accessible={true}
+                >
+                  <Text>
+                    Tentar novamente
+                  </Text>
+                </View>
+              </View>
+            </View>
+            <View>
+              <Text>
+                quotes
+                <Text>
+                  .
+                </Text>
+              </Text>
+              <Text>
+                Frases fornecidas pela API DummyJSON
+              </Text>
+            </View>
+          </View>
+        </RCTScrollView>
+      </RNCSafeAreaView>
+    </RNCSafeAreaProvider>
+
+      27 |   loadAllQuotesMock.mockResolvedValue(result);
+      28 |   await renderWithProviders(<HomeScreen />);
+    > 29 |   await screen.findByText(`${result.quotes.length} frases`);
+         |                ^
+      30 | }
+      31 |
+      32 | describe('Tela inicial', () => {
+
+      at findByText (tests/screens/home.test.tsx:29:16)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● Tela inicial › troca a frase em destaque por outra
+
+    Unable to find an element with text: 3 frases
+
+    <RNCSafeAreaProvider>
+      <RNCSafeAreaView>
+        <RCTScrollView>
+          <View>
+            <View>
+              <View>
+                <View>
+                  <View>
+                    <Text>
+                      “
+                    </Text>
+                  </View>
+                  <Text>
+                    quotes
+                    <Text>
+                      .
+                    </Text>
+                  </Text>
+                </View>
+                <View>
+                  <View
+                    accessibilityRole="link"
+                    accessibilityState={
+                      {
+                        "selected": true,
+                      }
+                    }
+                    accessible={true}
+                  >
+                    <Text>
+                      Explorar
+                    </Text>
+                  </View>
+                  <View
+                    accessibilityRole="link"
+                    accessibilityState={
+                      {
+                        "selected": false,
+                      }
+                    }
+                    accessible={true}
+                  >
+                    <Text>
+                      ♥ Curtidas
+                    </Text>
+                  </View>
+                </View>
+              </View>
+              <View>
+                <View>
+                  <View />
+                  <Text>
+                    INSPIRAÇÃO PARA TODOS OS DIAS
+                  </Text>
+                </View>
+                <Text>
+                  Palavras que
+                  
+    
+                  ficam com você.
+                </Text>
+                <Text>
+                  Pequenas ideias, grandes perspectivas. Encontre a frase certa para o seu momento.
+                </Text>
+              </View>
+              <View>
+                <View>
+                  <View>
+                    <Text>
+                      EM DESTAQUE
+                    </Text>
+                  </View>
+                  <Text>
+                    “
+                  </Text>
+                </View>
+                <Text>
+                  Inspiração para o seu dia.
+                </Text>
+              </View>
+              <View>
+                <View>
+                  <Text>
+                    EXPLORE A COLEÇÃO
+                  </Text>
+                  <Text>
+                    Todas as frases
+                  </Text>
+                </View>
+              </View>
+              <View
+                testID="quote-search"
+              >
+                <Text>
+                  ⌕
+                </Text>
+                <TextInput
+                  accessibilityLabel="Pesquisar por número, autor ou texto da frase"
+                  placeholder="Número, autor ou palavra-chave"
+                  value=""
+                />
+              </View>
+              <View>
+                <Text>
+                  Não foi possível carregar as frases
+                </Text>
+                <Text>
+                  O servidor está com problemas agora. Tente mais tarde.
+                </Text>
+                <View
+                  accessibilityRole="button"
+                  accessible={true}
+                >
+                  <Text>
+                    Tentar novamente
+                  </Text>
+                </View>
+              </View>
+            </View>
+            <View>
+              <Text>
+                quotes
+                <Text>
+                  .
+                </Text>
+              </Text>
+              <Text>
+                Frases fornecidas pela API DummyJSON
+              </Text>
+            </View>
+          </View>
+        </RCTScrollView>
+      </RNCSafeAreaView>
+    </RNCSafeAreaProvider>
+
+      27 |   loadAllQuotesMock.mockResolvedValue(result);
+      28 |   await renderWithProviders(<HomeScreen />);
+    > 29 |   await screen.findByText(`${result.quotes.length} frases`);
+         |                ^
+      30 | }
+      31 |
+      32 | describe('Tela inicial', () => {
+
+      at findByText (tests/screens/home.test.tsx:29:16)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● Tela inicial › mostra mensagem quando a API devolve coleção vazia
+
+    Unable to find an element with text: Ainda não há frases por aqui
+
+    <RNCSafeAreaProvider>
+      <RNCSafeAreaView>
+        <RCTScrollView>
+          <View>
+            <View>
+              <View>
+                <View>
+                  <View>
+                    <Text>
+                      “
+                    </Text>
+                  </View>
+                  <Text>
+                    quotes
+                    <Text>
+                      .
+                    </Text>
+                  </Text>
+                </View>
+                <View>
+                  <View
+                    accessibilityRole="link"
+                    accessibilityState={
+                      {
+                        "selected": true,
+                      }
+                    }
+                    accessible={true}
+                  >
+                    <Text>
+                      Explorar
+                    </Text>
+                  </View>
+                  <View
+                    accessibilityRole="link"
+                    accessibilityState={
+                      {
+                        "selected": false,
+                      }
+                    }
+                    accessible={true}
+                  >
+                    <Text>
+                      ♥ Curtidas
+                    </Text>
+                  </View>
+                </View>
+              </View>
+              <View>
+                <View>
+                  <View />
+                  <Text>
+                    INSPIRAÇÃO PARA TODOS OS DIAS
+                  </Text>
+                </View>
+                <Text>
+                  Palavras que
+                  
+    
+                  ficam com você.
+                </Text>
+                <Text>
+                  Pequenas ideias, grandes perspectivas. Encontre a frase certa para o seu momento.
+                </Text>
+              </View>
+              <View>
+                <View>
+                  <View>
+                    <Text>
+                      EM DESTAQUE
+                    </Text>
+                  </View>
+                  <Text>
+                    “
+                  </Text>
+                </View>
+                <Text>
+                  Inspiração para o seu dia.
+                </Text>
+              </View>
+              <View>
+                <View>
+                  <Text>
+                    EXPLORE A COLEÇÃO
+                  </Text>
+                  <Text>
+                    Todas as frases
+                  </Text>
+                </View>
+              </View>
+              <View
+                testID="quote-search"
+              >
+                <Text>
+                  ⌕
+                </Text>
+                <TextInput
+                  accessibilityLabel="Pesquisar por número, autor ou texto da frase"
+                  placeholder="Número, autor ou palavra-chave"
+                  value=""
+                />
+              </View>
+              <View>
+                <Text>
+                  Não foi possível carregar as frases
+                </Text>
+                <Text>
+                  O servidor está com problemas agora. Tente mais tarde.
+                </Text>
+                <View
+                  accessibilityRole="button"
+                  accessible={true}
+                >
+                  <Text>
+                    Tentar novamente
+                  </Text>
+                </View>
+              </View>
+            </View>
+            <View>
+              <Text>
+                quotes
+                <Text>
+                  .
+                </Text>
+              </Text>
+              <Text>
+                Frases fornecidas pela API DummyJSON
+              </Text>
+            </View>
+          </View>
+        </RCTScrollView>
+      </RNCSafeAreaView>
+    </RNCSafeAreaProvider>
+
+      130 |     await renderWithProviders(<HomeScreen />);
+      131 |
+    > 132 |     expect(await screen.findByText('Ainda não há frases por aqui')).toBeOnTheScreen();
+          |                         ^
+      133 |     expect(screen.getByRole('button', { name: 'Mostrar outra frase em destaque' })).toBeDisabled();
+      134 |   });
+      135 | });
+
+      at Object.findByText (tests/screens/home.test.tsx:132:25)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+Test Suites: 1 failed, 1 total
+Tests:       11 failed, 11 total
+Snapshots:   0 total
+Time:        14.767 s
+Ran all test suites matching /tests\/screens\/home.test.tsx/i.

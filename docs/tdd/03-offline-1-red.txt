@@ -1,0 +1,59 @@
+FAIL tests/services/quotes-repository.test.ts
+  ● Test suite failed to run
+
+    Configuration error:
+
+    Could not locate module @/services/quotes-cache mapped as:
+    <projeto>/Front/src/$1.
+
+    Please check your configuration for these entries:
+    {
+      "moduleNameMapper": {
+        "/^@\/(.*)$/": "<projeto>/Front/src/$1"
+      },
+      "resolver": <projeto>/Front/node_modules/@react-native/jest-preset/jest/resolver.js
+    }
+
+       6 |
+       7 | jest.mock('@/services/quotes-api');
+    >  8 | jest.mock('@/services/quotes-cache');
+         |      ^
+       9 | const getAllQuotesMock = jest.mocked(getAllQuotes);
+      10 | const readCacheMock = jest.mocked(readCachedQuotes);
+      11 | const saveCacheMock = jest.mocked(saveCachedQuotes);
+
+      at createNoMappedModuleFoundError (node_modules/jest-resolve/build/resolver.js:759:17)
+      at Object.mock (tests/services/quotes-repository.test.ts:8:6)
+
+FAIL tests/services/quotes-cache.test.ts
+  ● Test suite failed to run
+
+    Configuration error:
+
+    Could not locate module @/services/quotes-cache mapped as:
+    <projeto>/Front/src/$1.
+
+    Please check your configuration for these entries:
+    {
+      "moduleNameMapper": {
+        "/^@\/(.*)$/": "<projeto>/Front/src/$1"
+      },
+      "resolver": <projeto>/Front/node_modules/@react-native/jest-preset/jest/resolver.js
+    }
+
+      1 | import AsyncStorage from '@react-native-async-storage/async-storage';
+      2 |
+    > 3 | import { readCachedQuotes, saveCachedQuotes } from '@/services/quotes-cache';
+        | ^
+      4 | import { makeQuote } from '../helpers/fixtures';
+      5 |
+      6 | const STORAGE_KEY = '@quotes/cache/v1';
+
+      at createNoMappedModuleFoundError (node_modules/jest-resolve/build/resolver.js:759:17)
+      at Object.require (tests/services/quotes-cache.test.ts:3:1)
+
+Test Suites: 2 failed, 2 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        1.024 s
+Ran all test suites matching /tests\/services\/quotes-cache.test.ts|tests\/services\/quotes-repository.test.ts/i.

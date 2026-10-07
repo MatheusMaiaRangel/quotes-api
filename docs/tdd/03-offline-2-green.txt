@@ -1,0 +1,8 @@
+PASS tests/services/quotes-cache.test.ts
+PASS tests/services/quotes-repository.test.ts
+
+Test Suites: 2 passed, 2 total
+Tests:       12 passed, 12 total
+Snapshots:   0 total
+Time:        1.041 s
+Ran all test suites matching /tests\/services\/quotes-cache.test.ts|tests\/services\/quotes-repository.test.ts/i.

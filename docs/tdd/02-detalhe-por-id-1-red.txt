@@ -1,0 +1,32 @@
+FAIL tests/hooks/use-quote.test.tsx
+  ● Test suite failed to run
+
+    Configuration error:
+
+    Could not locate module @/hooks/use-quote mapped as:
+    <projeto>/Front/src/$1.
+
+    Please check your configuration for these entries:
+    {
+      "moduleNameMapper": {
+        "/^@\/(.*)$/": "<projeto>/Front/src/$1"
+      },
+      "resolver": <projeto>/Front/node_modules/@react-native/jest-preset/jest/resolver.js
+    }
+
+      1 | import { act, renderHook, waitFor } from '@testing-library/react-native';
+      2 |
+    > 3 | import { useQuote } from '@/hooks/use-quote';
+        | ^
+      4 | import { ApiError } from '@/services/api-client';
+      5 | import { getQuoteById } from '@/services/quotes-api';
+      6 | import { makeQuote } from '../helpers/fixtures';
+
+      at createNoMappedModuleFoundError (node_modules/jest-resolve/build/resolver.js:759:17)
+      at Object.require (tests/hooks/use-quote.test.tsx:3:1)
+
+Test Suites: 1 failed, 1 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        0.751 s
+Ran all test suites matching /tests\/hooks\/use-quote.test.tsx/i.

@@ -1,0 +1,108 @@
+FAIL tests/services/quotes-repository.test.ts
+  loadAllQuotes
+    ✓ usa a API quando está online e atualiza o cache (3 ms)
+    ✕ usa as frases salvas quando a API falha (2 ms)
+    ✓ repassa o erro original quando falha e não há nada salvo
+  loadQuoteById
+    ✕ busca a frase na API quando está online
+    ✕ usa a frase salva quando a API falha por conexão
+    ✕ repassa o erro quando a frase não está salva
+    ✕ não usa o cache quando a API diz que a frase não existe
+
+  ● loadAllQuotes › usa as frases salvas quando a API falha
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: "[quotes] usando frases salvas", Any<ApiError>
+
+    Number of calls: 0
+
+      40 |     expect(result).toEqual({ quotes: cachedQuotes, isOffline: true, savedAt: SAVED_AT });
+      41 |     expect(saveCacheMock).not.toHaveBeenCalled();
+    > 42 |     expect(console.warn).toHaveBeenCalledWith('[quotes] usando frases salvas', expect.any(ApiError));
+         |                          ^
+      43 |   });
+      44 |
+      45 |   it('repassa o erro original quando falha e não há nada salvo', async () => {
+
+      at Object.toHaveBeenCalledWith (tests/services/quotes-repository.test.ts:42:26)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● loadQuoteById › busca a frase na API quando está online
+
+    TypeError: (0 , _quotesRepository.loadQuoteById) is not a function
+
+      56 |     getQuoteByIdMock.mockResolvedValue(cachedQuotes[0]);
+      57 |
+    > 58 |     await expect(loadQuoteById(1)).resolves.toEqual(cachedQuotes[0]);
+         |                               ^
+      59 |     expect(readCacheMock).not.toHaveBeenCalled();
+      60 |   });
+      61 |
+
+      at Object.<anonymous> (tests/services/quotes-repository.test.ts:58:31)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at Object.<anonymous> (node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12)
+
+  ● loadQuoteById › usa a frase salva quando a API falha por conexão
+
+    TypeError: (0 , _quotesRepository.loadQuoteById) is not a function
+
+      64 |     readCacheMock.mockResolvedValue({ quotes: cachedQuotes, savedAt: SAVED_AT });
+      65 |
+    > 66 |     await expect(loadQuoteById(1)).resolves.toEqual(cachedQuotes[0]);
+         |                               ^
+      67 |   });
+      68 |
+      69 |   it('repassa o erro quando a frase não está salva', async () => {
+
+      at Object.<anonymous> (tests/services/quotes-repository.test.ts:66:31)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at Object.<anonymous> (node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12)
+
+  ● loadQuoteById › repassa o erro quando a frase não está salva
+
+    TypeError: (0 , _quotesRepository.loadQuoteById) is not a function
+
+      72 |     readCacheMock.mockResolvedValue({ quotes: cachedQuotes, savedAt: SAVED_AT });
+      73 |
+    > 74 |     await expect(loadQuoteById(2)).rejects.toBe(error);
+         |                               ^
+      75 |   });
+      76 |
+      77 |   it('não usa o cache quando a API diz que a frase não existe', async () => {
+
+      at Object.<anonymous> (tests/services/quotes-repository.test.ts:74:31)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at Object.<anonymous> (node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12)
+
+  ● loadQuoteById › não usa o cache quando a API diz que a frase não existe
+
+    TypeError: (0 , _quotesRepository.loadQuoteById) is not a function
+
+      79 |     getQuoteByIdMock.mockRejectedValue(error);
+      80 |
+    > 81 |     await expect(loadQuoteById(99999)).rejects.toBe(error);
+         |                               ^
+      82 |     expect(readCacheMock).not.toHaveBeenCalled();
+      83 |   });
+      84 | });
+
+      at Object.<anonymous> (tests/services/quotes-repository.test.ts:81:31)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at Object.<anonymous> (node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12)
+
+Test Suites: 1 failed, 1 total
+Tests:       5 failed, 2 passed, 7 total
+Snapshots:   0 total
+Time:        0.702 s, estimated 1 s
+Ran all test suites matching /tests\/services\/quotes-repository.test.ts/i.

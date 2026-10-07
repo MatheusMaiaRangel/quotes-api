@@ -1,0 +1,32 @@
+FAIL tests/screens/quote-detail.test.tsx
+  ● Test suite failed to run
+
+    Configuration error:
+
+    Could not locate module @/app/quote/[id] mapped as:
+    <projeto>/Front/src/$1.
+
+    Please check your configuration for these entries:
+    {
+      "moduleNameMapper": {
+        "/^@\/(.*)$/": "<projeto>/Front/src/$1"
+      },
+      "resolver": <projeto>/Front/node_modules/@react-native/jest-preset/jest/resolver.js
+    }
+
+      2 | import { screen, userEvent } from '@testing-library/react-native';
+      3 |
+    > 4 | import QuoteDetailScreen from '@/app/quote/[id]';
+        | ^
+      5 | import { ApiError } from '@/services/api-client';
+      6 | import { getQuoteById } from '@/services/quotes-api';
+      7 | import { makeQuote } from '../helpers/fixtures';
+
+      at createNoMappedModuleFoundError (node_modules/jest-resolve/build/resolver.js:759:17)
+      at Object.require (tests/screens/quote-detail.test.tsx:4:1)
+
+Test Suites: 1 failed, 1 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        0.75 s
+Ran all test suites matching /tests\/screens\/quote-detail.test.tsx/i.

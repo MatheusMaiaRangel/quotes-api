@@ -1,0 +1,25 @@
+PASS tests/utils/filter-quotes.test.ts
+  filterQuotes
+    ✓ devolve todas as frases quando a busca está vazia (2 ms)
+    ✓ ignora espaços em volta da busca
+    ✓ busca pelo número exato da frase
+    ✓ aceita o número com # na frente (1 ms)
+    ✓ devolve lista vazia quando o número não existe
+    ✓ busca pelo autor sem diferenciar maiúsculas
+    ✓ busca por trecho da frase (1 ms)
+    ✓ ignora acentos na busca e no texto
+    ✓ não altera a lista original
+  isNumberSearch
+    ✓ "2" é busca por número? true (1 ms)
+    ✓ "#12" é busca por número? true
+    ✓ " 7 " é busca por número? true
+    ✓ "abc" é busca por número? false
+    ✓ "#" é busca por número? false
+    ✓ "" é busca por número? false
+    ✓ "1a" é busca por número? false
+
+Test Suites: 1 passed, 1 total
+Tests:       16 passed, 16 total
+Snapshots:   0 total
+Time:        0.663 s, estimated 1 s
+Ran all test suites matching /tests\/utils\/filter-quotes.test.ts/i.

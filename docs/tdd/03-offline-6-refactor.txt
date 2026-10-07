@@ -1,0 +1,9 @@
+PASS tests/services/quotes-cache.test.ts
+PASS tests/services/quotes-repository.test.ts
+PASS tests/screens/home.test.tsx
+
+Test Suites: 3 passed, 3 total
+Tests:       23 passed, 23 total
+Snapshots:   0 total
+Time:        2.363 s
+Ran all test suites matching /tests\/screens\/home.test.tsx|tests\/services\/quotes-cache.test.ts|tests\/services\/quotes-repository.test.ts/i.

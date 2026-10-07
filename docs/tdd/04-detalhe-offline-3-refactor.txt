@@ -1,0 +1,35 @@
+PASS tests/services/quotes-repository.test.ts
+  loadAllQuotes
+    ✓ usa a API quando está online e atualiza o cache (5 ms)
+    ✓ usa as frases salvas quando a API falha (1 ms)
+    ✓ repassa o erro original quando falha e não há nada salvo
+  loadQuoteById
+    ✓ busca a frase na API quando está online (4 ms)
+    ✓ usa a frase salva quando a API falha por conexão (1 ms)
+    ✓ repassa o erro quando a frase não está salva
+    ✓ não usa o cache quando a API diz que a frase não existe
+
+PASS tests/hooks/use-quote.test.tsx
+  useQuote
+    ✓ começa carregando e depois mostra a frase do id pedido (20 ms)
+    ✓ avisa quando a frase não existe (4 ms)
+    ✓ mostra mensagem amigável quando está sem internet (3 ms)
+    ✓ tenta de novo e mostra a frase quando a conexão volta (12 ms)
+    ✓ não chama a API quando o id é inválido (1 ms)
+    ✓ busca de novo quando o id muda (3 ms)
+
+PASS tests/screens/quote-detail.test.tsx
+  Tela de detalhe da frase
+    ✓ mostra carregando e depois a frase completa (191 ms)
+    ✓ permite curtir a frase pela tela de detalhe (146 ms)
+    ✓ avisa quando a frase não existe, sem botão de tentar de novo (9 ms)
+    ✓ trata id inválido na URL como frase inexistente (6 ms)
+    ✓ usa o primeiro valor quando o id chega como lista (9 ms)
+    ✓ mostra erro de conexão e recupera ao tentar novamente (153 ms)
+    ✓ tem link para voltar à coleção (6 ms)
+
+Test Suites: 3 passed, 3 total
+Tests:       20 passed, 20 total
+Snapshots:   0 total
+Time:        1.789 s, estimated 3 s
+Ran all test suites matching /tests\/services\/quotes-repository.test.ts|tests\/hooks|tests\/screens\/quote-detail.test.tsx/i.

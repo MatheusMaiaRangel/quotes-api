@@ -1,0 +1,14 @@
+PASS tests/hooks/use-quote.test.tsx
+  useQuote
+    ✓ começa carregando e depois mostra a frase do id pedido (18 ms)
+    ✓ avisa quando a frase não existe (2 ms)
+    ✓ mostra mensagem amigável quando está sem internet (1 ms)
+    ✓ tenta de novo e mostra a frase quando a conexão volta (2 ms)
+    ✓ não chama a API quando o id é inválido (1 ms)
+    ✓ busca de novo quando o id muda (2 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       6 passed, 6 total
+Snapshots:   0 total
+Time:        0.781 s, estimated 1 s
+Ran all test suites matching /tests\/hooks\/use-quote.test.tsx/i.

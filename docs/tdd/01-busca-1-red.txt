@@ -1,0 +1,30 @@
+FAIL tests/utils/filter-quotes.test.ts
+  ● Test suite failed to run
+
+    Configuration error:
+
+    Could not locate module @/utils/filter-quotes mapped as:
+    <projeto>/Front/src/$1.
+
+    Please check your configuration for these entries:
+    {
+      "moduleNameMapper": {
+        "/^@\/(.*)$/": "<projeto>/Front/src/$1"
+      },
+      "resolver": <projeto>/Front/node_modules/@react-native/jest-preset/jest/resolver.js
+    }
+
+    > 1 | import { filterQuotes, isNumberSearch } from '@/utils/filter-quotes';
+        | ^
+      2 | import { makeQuote } from '../helpers/fixtures';
+      3 |
+      4 | const quotes = [
+
+      at createNoMappedModuleFoundError (node_modules/jest-resolve/build/resolver.js:759:17)
+      at Object.<anonymous> (tests/utils/filter-quotes.test.ts:1:1)
+
+Test Suites: 1 failed, 1 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        0.688 s
+Ran all test suites matching /tests\/utils\/filter-quotes.test.ts/i.

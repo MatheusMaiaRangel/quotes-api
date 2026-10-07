@@ -1,0 +1,16 @@
+PASS tests/services/quotes-repository.test.ts
+  loadAllQuotes
+    ✓ usa a API quando está online e atualiza o cache (3 ms)
+    ✓ usa as frases salvas quando a API falha (1 ms)
+    ✓ repassa o erro original quando falha e não há nada salvo
+  loadQuoteById
+    ✓ busca a frase na API quando está online (1 ms)
+    ✓ usa a frase salva quando a API falha por conexão
+    ✓ repassa o erro quando a frase não está salva (1 ms)
+    ✓ não usa o cache quando a API diz que a frase não existe
+
+Test Suites: 1 passed, 1 total
+Tests:       7 passed, 7 total
+Snapshots:   0 total
+Time:        0.681 s, estimated 1 s
+Ran all test suites matching /tests\/services\/quotes-repository.test.ts/i.

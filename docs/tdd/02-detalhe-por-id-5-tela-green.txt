@@ -1,0 +1,14 @@
+PASS tests/screens/quote-detail.test.tsx
+  Tela de detalhe da frase
+    ✓ mostra carregando e depois a frase completa (189 ms)
+    ✓ permite curtir a frase pela tela de detalhe (148 ms)
+    ✓ avisa quando a frase não existe, sem botão de tentar de novo (10 ms)
+    ✓ trata id inválido na URL como frase inexistente (5 ms)
+    ✓ mostra erro de conexão e recupera ao tentar novamente (153 ms)
+    ✓ tem link para voltar à coleção (7 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       6 passed, 6 total
+Snapshots:   0 total
+Time:        1.359 s, estimated 5 s
+Ran all test suites matching /tests\/screens\/quote-detail.test.tsx/i.

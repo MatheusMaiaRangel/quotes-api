@@ -1,0 +1,23 @@
+PASS tests/services/quotes-repository.test.ts
+  loadAllQuotes
+    ✓ usa a API quando está online e atualiza o cache (3 ms)
+    ✓ usa as frases salvas quando a API falha
+    ✓ repassa o erro original quando falha e não há nada salvo (1 ms)
+
+PASS tests/services/quotes-cache.test.ts
+  cache de frases
+    ✓ devolve null quando nunca salvou nada (1 ms)
+    ✓ salva e lê de volta as frases com a data em que foram salvas (1 ms)
+    ✓ não salva lista vazia para não apagar um cache bom (1 ms)
+    ✓ ignora cache corrompido (JSON quebrado)
+    ✓ ignora cache corrompido (formato errado)
+    ✓ ignora cache corrompido (frase inválida)
+    ✓ ignora cache corrompido (sem data)
+    ✓ devolve null e avisa no console se o armazenamento falhar na leitura (1 ms)
+    ✓ não quebra se o armazenamento falhar na escrita
+
+Test Suites: 2 passed, 2 total
+Tests:       12 passed, 12 total
+Snapshots:   0 total
+Time:        0.786 s, estimated 1 s
+Ran all test suites matching /tests\/services\/quotes-cache.test.ts|tests\/services\/quotes-repository.test.ts/i.

@@ -1,0 +1,19 @@
+PASS tests/screens/home.test.tsx
+  Tela inicial
+    ✓ mostra carregando enquanto a API não responde (192 ms)
+    ✓ mostra a frase em destaque e a coleção (20 ms)
+    ✓ não mostra aviso de offline quando a API respondeu (16 ms)
+    ✓ mostra aviso quando está usando as frases salvas (27 ms)
+    ✓ mostra erro amigável e recupera ao tentar novamente (165 ms)
+    ✓ filtra a coleção pelo autor, sem acento (71 ms)
+    ✓ avisa quando a busca por número não encontra nada e permite limpar (171 ms)
+    ✓ avisa quando a busca por texto não encontra nada (28 ms)
+    ✓ mostra mais frases em lotes de 24 (204 ms)
+    ✓ troca a frase em destaque por outra (154 ms)
+    ✓ mostra mensagem quando a API devolve coleção vazia (8 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       11 passed, 11 total
+Snapshots:   0 total
+Time:        1.877 s, estimated 2 s
+Ran all test suites matching /tests\/screens\/home.test.tsx/i.
