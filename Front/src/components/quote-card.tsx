@@ -1,4 +1,5 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { Link } from 'expo-router';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { FavoriteButton } from '@/components/favorite-button';
 import { useQuotesColors } from '@/constants/quotes-theme';
@@ -15,7 +16,17 @@ export function QuoteCard({ quote }: { quote: Quote }) {
       </View>
       <Text style={[styles.quote, { color: colors.ink }]}>{quote.quote}</Text>
       <View style={[styles.divider, { backgroundColor: colors.line }]} />
-      <Text style={[styles.author, { color: colors.muted }]}>{quote.author}</Text>
+      <View style={styles.bottom}>
+        <Text style={[styles.author, { color: colors.muted }]}>{quote.author}</Text>
+        <Link href={`/quote/${quote.id}`} asChild>
+          <Pressable
+            accessibilityRole="link"
+            accessibilityLabel={`Ver detalhes da frase ${quote.id}`}
+            style={({ pressed }) => [styles.detailsLink, pressed && styles.pressed]}>
+            <Text style={[styles.detailsText, { color: colors.accent }]}>Ver frase →</Text>
+          </Pressable>
+        </Link>
+      </View>
     </View>
   );
 }
@@ -26,5 +37,9 @@ const styles = StyleSheet.create({
   number: { fontSize: 11, fontWeight: '700', letterSpacing: 1.3 },
   quote: { fontSize: 18, lineHeight: 28, fontWeight: '500', letterSpacing: -0.3, marginTop: 16, marginBottom: 24 },
   divider: { height: 1, marginTop: 'auto', marginBottom: 16 },
-  author: { fontSize: 13, fontWeight: '600' },
+  bottom: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12 },
+  author: { flexShrink: 1, fontSize: 13, fontWeight: '600' },
+  detailsLink: { minHeight: 44, justifyContent: 'center' },
+  detailsText: { fontSize: 13, fontWeight: '700' },
+  pressed: { opacity: 0.7 },
 });
