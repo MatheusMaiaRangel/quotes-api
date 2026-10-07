@@ -24,7 +24,10 @@ No terminal do Expo, escolha Android, iOS ou web. Também é possível usar `npm
 ```bash
 npm test               # roda todos os testes
 npm run test:coverage  # roda com relatório de cobertura (mínimo 80%)
+npm run tdd:demo       # mostra ao vivo o ciclo TDD: testes falhando (RED) e depois passando (GREEN)
 ```
+
+O `tdd:demo` não altera nenhum arquivo: ele roda o Jest como se o código de cada funcionalidade ainda não existisse.
 
 Os testes ficam em `tests/` (fora de `src/app` para o Expo Router não tratá-los como rotas). As evidências do ciclo TDD estão em `../docs/tdd`.
 
