@@ -14,10 +14,7 @@ import { useQuotesColors } from '@/constants/quotes-theme';
 import type { Quote } from '@/models/quote';
 import { toErrorMessage } from '@/services/api-client';
 import { getAllQuotes } from '@/services/quotes-api';
-
-function normalizeSearch(value: string) {
-  return value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
-}
+import { filterQuotes, isNumberSearch } from '@/utils/filter-quotes';
 
 export default function HomeScreen() {
   const colors = useQuotesColors();
@@ -52,17 +49,7 @@ export default function HomeScreen() {
     return () => { active = false; };
   }, [attempt]);
 
-  const filteredQuotes = useMemo(() => {
-    const query = normalizeSearch(search.trim());
-    const numericQuery = query.replace(/^#/, '');
-    if (/^\d+$/.test(numericQuery)) {
-      const quoteId = Number(numericQuery);
-      return quotes.filter((quote) => quote.id === quoteId);
-    }
-    return quotes.filter((quote) =>
-      normalizeSearch(quote.author).includes(query) || normalizeSearch(quote.quote).includes(query)
-    );
-  }, [quotes, search]);
+  const filteredQuotes = useMemo(() => filterQuotes(quotes, search), [quotes, search]);
 
   const featuredQuote = quotes[featuredIndex];
   const visibleQuotes = filteredQuotes.slice(0, visibleCount);
@@ -194,7 +181,7 @@ export default function HomeScreen() {
             <Text style={[styles.statusText, { color: colors.muted }]}>
               {quotes.length === 0
                 ? 'Tente novamente em instantes.'
-                : /^#?\d+$/.test(search.trim())
+                : isNumberSearch(search)
                   ? 'Confira o número da frase e tente novamente.'
                   : 'Tente buscar por outro autor ou palavra.'}
             </Text>
